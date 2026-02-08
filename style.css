@@ -1,1041 +1,122 @@
-/* =========================================
-   Reset e Impostazioni Generali
-   ========================================= */
-html {
-    -webkit-text-size-adjust: 100%;
-}
 
-* {
-    margin: 0;
-}
+  .style_000000001 { font-size:14px; font-family:Roboto; color:rgb(119,119,119); }
+  .style_000000002 { font-size:16px; font-family:Roboto; color:rgb(255,255,255); }
+  .style_000000003 { font-size:48px; font-family:Roboto; color:rgb(255,255,255); }
+  .style_000000004 { font-size:16px; font-family:Roboto; color:rgb(33,33,33); }
+  .style_000000005 { font-size:22px; font-family:Roboto; color:rgb(33,33,33); }
+  .style_000000006 { font-size:48px; font-family:Roboto; color:rgb(0,0,0); }
+  .style_000000007 { font-size:14px; font-family:Roboto; color:rgb(255,255,255); }
 
-body, #website {
-    font-size: 16px;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    background: #ee4266;
-    margin: 0;
-    font-family: 'Open Sans', sans-serif;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    -webkit-overflow-scrolling: touch;
-}
+  #mc5 a, #mc5 a:link, #mc5 a:active, #mc5 a:visited { 
+    color: blue; 
+    text-decoration:none; 
+    transition: 0.2s all ease-in-out; 
+    -webkit-transition: 0.2s all ease-in-out; 
+  }
+  #mc5 a:hover { color: blue; text-decoration:none; }
+  #mc5 h1, #mc5 h2, #mc5 h3, #mc5 h4, #mc5 h5, #mc5 h6 { font-weight: 400; }
 
-div, span {
-    max-height: 200000px;
-}
+  html { -webkit-text-size-adjust: 100%; }
+  * { margin:0; }
+  body, #website { 
+    font-size: 16px; 
+    overflow: hidden; 
+    background: #ee4266; 
+    margin: 0; 
+    font-family:'Open Sans', sans-serif; 
+    position: absolute; 
+    top: 0; left: 0; width: 100%; height: 100%; 
+    -webkit-overflow-scrolling: touch; 
+  }
 
-/* =========================================
-   Stili del Testo (Classi Generate)
-   ========================================= */
-.style_000000001 {
-    font-size: 14px;
-    font-family: Roboto;
-    color: rgb(119, 119, 119);
-}
+  div, span { max-height: 200000px; }
+  .testoc { line-height: 1.2; vertical-align:top; }
+  .testoc span > span > a, .testoc span > font > span > a { display:inline-block; }
+  body.flazioNoScroll { overflow: hidden !important; }
 
-.style_000000002 {
-    font-size: 16px;
-    font-family: Roboto;
-    color: rgb(255, 255, 255);
-}
+  body *::-webkit-scrollbar { width: 8px; }
+  body *::-webkit-scrollbar-thumb { border-radius: 15px; background: rgba(153, 156, 161, 0.8); }
+  body *::-webkit-scrollbar-track { border-radius: 5px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.1); }
 
-.style_000000003 {
-    font-size: 48px;
-    font-family: Roboto;
-    color: rgb(255, 255, 255);
-}
+  .yscrollbar { 
+    position: absolute; top: 0; right: 0; width: 10px; z-index:30000; 
+    border-radius: 15px; background: rgba(0, 0, 0, 0.2); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.1); 
+  }
+  .yscroller { background: #bbd; position: relative; width:100%; height:70px; cursor: pointer; }
+  .yscroller:hover { border-radius: 15px; }
+  .yscroller:active { background: #003399; }
 
-.style_000000004 {
-    font-size: 16px;
-    font-family: Roboto;
-    color: rgb(33, 33, 33);
-}
+  body.overflow_recaptha { height: auto !important; overflow: scroll !important; }
+  div#mc5.popup:after { 
+    content: ""; position: fixed; display: block; 
+    background: rgba(0,0,0,0.6); width: 100%; height: 100%; 
+    top: 0; left: 0; z-index: 2000; 
+  }
 
-.style_000000005 {
-    font-size: 22px;
-    font-family: Roboto;
-    color: rgb(33, 33, 33);
+  video {
+    filter: -opera-shader(url(data:text/plain;base64,Ly8gaHR0cHM6Ly9naXRodWIuY29tL0dQVU9wZW4tRWZmZWN0cy9GaWRlbGl0eUZYLUNBUwovLyB2MwoKdW5pZm9ybSBzaGFkZXIgaUNodW5rOwp1bmlmb3JtIGZsb2F0MiBpTW91c2U7CnVuaWZvcm0gZmxvYXQ0IGlWaXNpYmxlUmVjdDsKdW5pZm9ybSBmbG9hdCBpQXJnc1sxXTsKCmNvbnN0IGZsb2F0IEVQU0lPTiA9IDAuMTsKY29uc3QgZmxvYXQgVl9NSU4gPSAwOwpjb25zdCBmbG9hdCBWX0xPVyA9IDAuMjU7CnVuaWZvcm0gZmxvYXQgVl9NRUQgPSAwLjU7CnVuaWZvcm0gZmxvYXQgVl9ESUdIID0gMC43NTsKdW5pZm9ybSBmbG9hdCBWX01BWCA9IDE7Cgpjb25zdCBmbG9hdCBUSFJFU0hPTERfQVJFQSA9IDgwMCAqIDYwMDsKY29uc3QgZmxvYXQgTUlOX0FSRUEgPSA0MDAgKiAxMDA7CmNvbnN0IGZsb2F0IE1JTl9TVFJJUCA9IDIwOwpjb25zdCBmbG9hdCBNQVJHSU4gPSAxOwoKaW5saW5lIGZsb2F0MyBwaXhlbChmbG9hdDIgeHksIGZsb2F0MiBvZmZzZXQpIHsKICAgIHJldHVybiBpQ2h1bmsuZXZhbCh4eSArIG9mZnNldCkucmdiOwp9CgppbmxpbmUgZmxvYXQzIHNoYXJwZW4oZmxvYXQyIHh5KSB7CiAgICBmbG9hdDMgZiA9CiAgICAgICAgcGl4ZWwoeHksIGZsb2F0MigtMSwgLTEpKSAqICAxICsKICAgICAgICBwaXhlbCh4eSwgZmxvYXQyKCAwLCAtMSkpICogLTEgKwogICAgICAgIHBpeGVsKHh5LCBmbG9hdDIoIDEsIC0xKSkgKiAgMSArCgogICAgICAgIHBpeGVsKHh5LCBmbG9hdDIoLTEsIDApKSAqIC0xICArCiAgICAgICAgcGl4ZWwoeHksIGZsb2F0MiggMCwgMCkpICogLTEgICsKICAgICAgICBwaXhlbCh4eSwgZmxvYXQyKCAxLCAwKSkgKiAtMSAgKwoKICAgICAgICBwaXhlbCh4eSwgZmxvYXQyKC0xLCAxKSkgKiAxICAgKwogICAgICAgIHBpeGVsKHh5LCBmbG9hdDIoIDAsIDEpKSAqIC0xICArCiAgICAgICAgcGl4ZWwoeHksIGZsb2F0MiggMSwgMSkpICogMTsKICAgIHJldHVybiBmIC8gLTE7Cn0KCmZsb2F0NCBSR1gyKGZsb2F0MiB4eSkgewogICAgZmxvYXQyIGNodW5rX3NpemUgPSBpVmlzaWJsZVJlY3Quenc7CiAgICBmbG9hdDQgY29sb3IgPSBpQ2h1bmsuZXZhbCh4eSk7CgogICAgaWYgKGNodW5rX3NpemUueCAqIGNodW5rX3NpemUueSA8IE1JTl9BUkVBKSB7CiAgICAgICAgcmV0dXJuIGNvbG9yOwogICAgfQoKICAgIGlmIChjaHVua19zaXplLnkgPCBNSU5fU1RSSVAgfHwgY2h1bmtfc2l6ZS54IDwgTUlOX1NUUklQKSB7CiAgICAgICAgcmV0dXJuIGNvbG9yOwogICAgfQoKICAgIGlmICh4eS54IDwgTUFSR0lOIHx8IHh5LnggPiAoY2h1bmtfc2l6ZS54IC0gTUFSR0lOKSB8fAogICAgICAgIHh5LnkgPCBNQVJHSU4gfHwgeHkueSA+IChjaHVua19zaXplLnkgLSBNQVJHSU4pKSB7CiAgICAgICAgcmV0dXJuIGNvbG9yOwogICAgfQoKICAgIHJldHVybiBmbG9hdDQoc2hhcnBlbih4eSksIDEpOwp9CgppbmxpbmUgZmxvYXQzIG1pbjN2KGZsb2F0MyB4LCBmbG9hdDMgeSwgZmxvYXQzIHopIHsKCXJldHVybiBtaW4oeCwgbWluKHksIHopKTsKfQoKaW5saW5lIGZsb2F0MyBtYXgzdihmbG9hdDMgeCwgZmxvYXQzIHksIGZsb2F0MyB6KSB7CglyZXR1cm4gbWF4KHgsIG1heCh5LCB6KSk7Cn0KCmZsb2F0MyBSR1gzKGZsb2F0MiB4eSwgZmxvYXQgc3RyZW5ndGgpIHsKICAgIGZsb2F0MyBhID0gcGl4ZWwoeHksIGZsb2F0MigtMSwgLTEpKTsKICAgIGZsb2F0MyBiID0gcGl4ZWwoeHksIGZsb2F0MiggMCwgLTEpKTsKICAgIGZsb2F0MyBjID0gcGl4ZWwoeHksIGZsb2F0MiggMSwgLTEpKTsKCiAgICBmbG9hdDMgZCA9IHBpeGVsKHh5LCBmbG9hdDIoLTEsIDApKTsKICAgIGZsb2F0MyBlID0gcGl4ZWwoeHksIGZsb2F0MiggMCwgMCkpOwogICAgZmxvYXQzIGYgPSBwaXhlbCh4eSwgZmxvYXQyKCAxLCAwKSk7CgogICAgZmxvYXQzIGcgPSBwaXhlbCh4eSwgZmxvYXQyKC0xLCAxKSk7CiAgICBmbG9hdDMgaCA9IHBpeGVsKHh5LCBmbG9hdDIoIDAsIDEpKTsKICAgIGZsb2F0MyBpID0gcGl4ZWwoeHksIGZsb2F0MiggMSwgMSkpOwoKICAgIGZsb2F0MyBtaW5fZGVmID0gbWluM3YoZCwgZSwgZik7CiAgICBmbG9hdDMgbWluX2JkZWZoID0gbWluM3YoYiwgbWluX2RlZiwgaCk7CiAgICBmbG9hdDMgbWluX2FiY2RmZ2hpID0gbWluM3YobWluM3YoYSwgbWluX2JkZWZoLCBjKSwgZywgaSk7CiAgICBmbG9hdDMgbWluM19mYWN0b3IgPSBtaW5fYmRlZmggKyBtaW5fYWJjZGZnaGk7CgogICAgZmxvYXQzIG1heF9kZWYgPSBtYXgzdihkLCBlLCBmKTsKICAgIGZsb2F0MyBtYXhfYmRlZmggPSBtYXgzdihiLCBtYXhfZGVmLCBoKTsKICAgIGZsb2F0MyBtYXhfYWJjZGZnaGkgPSBtYXgzdihtYXgzdihhLCBtaW5fYmRlZmgsIGMpLCBnLCBpKTsKICAgIGZsb2F0MyBtYXgzX2ZhY3RvciA9IG1heF9iZGVmaCArIG1heF9hYmNkZmdoaTsKCiAgICBmbG9hdDMgZmFjdG9yID0gMS4wIC8gbWF4M19mYWN0b3I7CgogICAgZmxvYXQzIGFtcCA9IHNhdHVyYXRlKG1pbihtaW4zX2ZhY3RvciwgMiAtIG1heDNfZmFjdG9yKSAqIGZhY3Rvcik7CiAgICBmbG9hdDMgYW1wX3NxcnQgPSBzcXJ0KGFtcCk7CgogICAgZmxvYXQgcGVhayA9IC0xLjAgLyAobWl4KDgsIDUsIHN0cmVuZ3RoKSk7CgogICAgZmxvYXQzIGNyb3NzX3dlaWdodHMgPSBhbXBfc3FydCAqIHBlYWs7CiAgICBmbG9hdDMgd2VpZ2h0cyA9IDEgLyAoMSArIDQgKiBjcm9zc193ZWlnaHRzKTsKCiAgICBmbG9hdDMgcmVzdWx0ID0gKChiICsgZCArIGYgKyBoKSAqIGNyb3NzX3dlaWdodHMgKyBlKSAqIHdlaWdodHM7CgogICAgcmV0dXJuIHNhdHVyYXRlKHJlc3VsdCk7Cn0KCmZsb2F0NCBtYWluKGZsb2F0MiB4eSkgewoKICAgIGZsb2F0NCBvcmlnaW5hbENvbG9yID0gaUNodW5rLmV2YWwoeHkpOwogICAgaWYgKG9yaWdpbmFsQ29sb3IuYSA8IDEpIHsKICAgICAgICByZXR1cm4gaUNodW5rLmV2YWwoeHkpOwogICAgfQoKICAgIGZsb2F0IGludGVuc2l0eSA9IGlBcmdzWzBdOwogICAgZmxvYXQgc3RyZW5ndGggPSAwOwogICAgZmxvYXQzIGNvbG9yOwoKICAgIGlmIChpbnRlbnNpdHkgPCBWX01JTiArIEVQU0lPTikgewogICAgICAgIHN0cmVuZ3RoID0gMC4xMDsKICAgICAgICBjb2xvciA9IFJHWDMoeHksIHN0cmVuZ3RoKTsKCiAgICB9IGVsc2UgaWYgKGludGVuc2l0eSA+IFZfTE9XIC0gRVBTSU9OICYmIGludGVuc2l0eSA8IFZfTE9XICsgRVBTSU9OKSB7CiAgICAgICAgc3RyZW5ndGggPSAwLjMzOwogICAgICAgIGNvbG9yID0gUkdYMyh4eSwgc3RyZW5ndGgpOwoKICAgIH0gZWxzZSBpZiAoaW50ZW5zaXR5ID4gVl9NRUQgLSBFUFNJT04gJiYgaW50ZW5zaXR5IDwgVl9NRUQgKyBFUFNJT04pIHsKICAgICAgICBzdHJlbmd0aCA9IDAuNTsKICAgICAgICBjb2xvciA9IFJHWDMoeHksIHN0cmVuZ3RoKTsKCiAgICB9IGVsc2UgaWYgKGludGVuc2l0eSA+IFZfSElHSCAtIEVQU0lPTiAppliedCAmIGludGVuc2l0eSA8IFZfSElHSCArIEVQU0lPTikgewogICAgICAgIHN0cmVuZ3RoID0gMC45OTsKICAgICAgICBjb2xvciA9IFJHWDMoeHksIHN0cmVuZ3RoKTsKCiAgICB9IGVsc2UgaWYgKGludGVuc2l0eSA+IFZfTUFYIC0gRVBTSU9OKSB7CiAgICAgICAgc3RyZW5ndGggPSAxOwogICAgICAgIGNvbG9yID0gUkdYMih4eSkucmdijsKICAgIH0KCiAgICByZXR1cm4gZmxvYXQ0KGNvbG9yLCBvcmlnaW5hbENvbG9yLmEpOwp9KSAtb3BlcmEtYXJncygwLjUwIGNhbGMoZW52KC1vcGVyYS1hY2NlbnQtY29sb3ItciwgMjU1KS8yNTUpIGNhbGMoZW52KC1vcGVyYS1hY2NlbnQtY29sb3ItZywgMjU1KS8yNTUpIGNhbGMoZW52KC1vcGVyYS1hY2NlbnQtY29sb3ItYiwgMjU1KS8yNTUpKSk7
+  }
+#aruba h1, #aruba h2, #aruba h3, #aruba h4, #aruba h5, #aruba h6 { 
+  margin: 0; 
+  line-height: 1.2em; 
+  padding-bottom: .4em; 
+  font-weight: 600; 
 }
-
-.style_000000006 {
-    font-size: 48px;
-    font-family: Roboto;
-    color: rgb(0, 0, 0);
+.comp_ombrasemplice { 
+    position: absolute; bottom: 0; width: 100%; height: 100%; 
+    box-shadow: 0 4px 12px -6px; border-radius: inherit; pointer-events: none; 
 }
-
-.style_000000007 {
-    font-size: 14px;
-    font-family: Roboto;
-    color: rgb(255, 255, 255);
+.comp_ombradestrasinistra, .comp_ombrasinistra, .comp_ombradestra, .comp_ombrataglio {
+    position: absolute; bottom: -20px; left: 0; height: 20px; width: 100%; 
+    overflow: hidden; border-radius: inherit;
 }
-
-/* =========================================
-   Componenti Specifici (mc5)
-   ========================================= */
-#mc5 a,
-#mc5 a:link,
-#mc5 a:active,
-#mc5 a:visited {
-    color: blue;
-    text-decoration: none;
-    transition: 0.2s all ease-in-out;
-    -webkit-transition: 0.2s all ease-in-out;
-    -moz-transition: 0.2s all ease-in-out;
-    -ms-transition: 0.2s all ease-in-out;
-}
-
-#mc5 a:hover {
-    color: blue;
-    text-decoration: none;
-}
-
-#mc5 h1, #mc5 h2, #mc5 h3, #mc5 h4, #mc5 h5, #mc5 h6 {
-    font-weight: 400;
-}
-
-div#mc5.popup:after {
-    content: "";
-    position: fixed;
-    display: block;
-    background: rgba(0, 0, 0, 0.6);
-    width: 100%;
-    height: 100%;
-    top: 0px;
-    left: 0px;
-    z-index: 2000;
-}
-
-/* =========================================
-   Elementi Testuali (Aruba styles)
-   ========================================= */
-.testoc {
-    line-height: 1.2;
-    vertical-align: top;
-}
-
-.testoc span > span > a,
-.testoc span > font > span > a {
-    display: inline-block;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-    line-height: 1.2em;
-    padding-bottom: .4em;
-    font-weight: 600;
-}
-
-/* =========================================
-   Scrollbars e Navigazione
-   ========================================= */
-body.flazioNoScroll {
-    overflow: hidden !important;
-}
-
-body *::-webkit-scrollbar {
-    width: 8px;
-}
-
-body *::-webkit-scrollbar-thumb {
-    border-radius: 15px;
-    background: rgba(153, 156, 161, 0.8);
-}
-
-body *::-webkit-scrollbar-track {
-    border-radius: 5px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(0, 0, 0, 0.1);
-}
-
-.yscrollbar {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 10px;
-    background: red;
-    z-index: 30000;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    border-radius: 15px;
-    background: rgba(0, 0, 0, 0.2);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    -moz-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.1);
-    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.1);
-}
-
-.yscroller {
-    background: #bbd;
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
-    cursor: pointer;
-}
-
-.yscroller:hover {
-    background: #bbd;
-    position: relative;
-    top: 0;
-    left: 0;
-    cursor: pointer;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    border-radius: 15px;
-}
-
-.yscroller:active {
-    background: #003399;
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
-    cursor: pointer;
-}
-
-body.overflow_recaptha {
-    height: auto !important;
-    overflow: scroll !important;
-}
-/* =========================================
-   FILTRI ANTI-SPAM E AD-BLOCK
-   (Nasconde banner e link indesiderati)
-   ========================================= */
-:root img[width="728"][height="90"], 
-:root [href="https://adstub.net/cina777/"], 
-:root [href="https://adstub.net/arab777/"], 
-:root [href="https://adstub.net/ratu89/"], 
-:root [href="https://adstub.net/judi89/"], 
-:root [href^="//mage98rquewz.com/"], 
-:root [href^="//x4pollyxxpush.com/"], 
-:root span[id^="ezoic-pub-ad-placeholder-"], 
-:root ins.adsbygoogle[data-ad-slot], 
-:root ins.adsbygoogle[data-ad-client], 
-:root img[src^="https://s-img.adskeeper.com/"], 
-:root guj-ad, :root gpt-ad, 
-:root div[ow-ad-unit-wrapper], 
-:root div[id^="zergnet-widget"], 
-:root div[id^="vuukle-ad-"], 
-:root div[id^="taboola-stream-"], 
-:root div[id^="sticky_ad_"], 
-:root div[id^="st"][style^="z-index: 999999999;"], 
-:root div[id^="rc-widget-"], 
-:root div[id^="mrec-leaderboard-"], 
-:root div[id^="gpt_ad_"], 
-:root div[id^="ezoic-pub-ad-"], 
-:root div[id^="dfp-ad-"], 
-:root div[id^="crt-"][style], 
-:root div[id^="apn_native_ad_slot_"], 
-:root div[id^="adspot-"], 
-:root div[id^="adrotate_widgets-"], 
-:root ps-connatix-module, 
-:root div[id^="ad_position_"], 
-:root div[id^="ad-div-"], 
-:root div[id*="ScriptRoot"], 
-:root div[id*="MarketGid"], 
-:root [href="https://adstub.net/rusia777/"], 
-:root div[data-id-advertdfpconf], 
-:root div[data-dfp-id], 
-:root hl-adsense, 
-:root div[data-contentexchange-widget], 
-:root div[data-alias="300x250 Ad 2"], 
-:root div[data-adunit-path], 
-:root div[data-adname], 
-:root div[data-ad-placeholder], 
-:root a[href^="https://osfultrbriolenai.info/"], 
-:root div[class^="Adstyled__AdWrapper-"], 
-:root a[href^="https://go.xlviiirdr.com"], 
-:root div[class$="-adlabel"], 
-:root display-ads, 
-:root a[href^="https://go.grinsbest.com/"], 
-:root citrus-ad-wrapper, 
-:root a[href^="https://s.zlinkd.com/"], 
-:root bottomadblock, 
-:root amp-fx-flying-carpet, 
-:root amp-embed[type="taboola"], 
-:root amp-connatix-player, 
-:root div[id^="google_dfp_"], 
-:root ad-slot, 
-:root broadstreet-zone-container, 
-:root amp-ad, 
-:root [data-template-type="nativead"], 
-:root div[data-alias="300x250 Ad 1"], 
-:root [data-identity="adhesive-ad"], 
-:root .gnt_em_vp_c[data-g-s="vp_dk"], 
-:root div[data-ad-wrapper], 
-:root [data-ad-manager-id], 
-:root [href="https://adstub.net/gaza88/"], 
-:root app-ad, 
-:root [data-ad-name], 
-:root ad-shield-ads, 
-:root display-ad-component, 
-:root [class^="tile-picker__CitrusBannerContainer-sc-"], 
-:root [data-role="tile-ads-module"], 
-:root [data-css-class="dfp-inarticle"], 
-:root app-large-ad, 
-:root div[data-adunit], 
-:root #mgb-container > #mgb, 
-:root app-advertisement, 
-:root [data-taboola-options], 
-:root .nya-slot[style], 
-:root atf-ad-slot, 
-:root .banner-img > .pbl, 
-:root [data-m-ad-id], 
-:root div[id^="optidigital-adslot"], 
-:root amp-ad-custom, 
-:root a-ad, 
-:root #slashboxes > .deals-rail, 
-:root div[aria-label="Ads"], 
-:root [data-cl-spot-id], 
-:root .\[\&_\.gdprAdTransparencyCogWheelButton\]\:\!pjra-z-\[5\], 
-:root [data-d-ad-id], 
-:root div[id^="lazyad-"], 
-:root [id^="section-ad-banner"], 
-:root [id^="ad_slider"], 
-:root [id^="ad-wrap-"], 
-:root .section-subheader > .section-hotel-prices-header, 
-:root div[id^="ad-position-"], 
-:root div[id^="div-ads-"], 
-:root .scroll-fixable.rail-right > .deals-rail, 
-:root [data-wpas-zoneid], 
-:root div[data-adzone], 
-:root div[id^="adngin-"], 
-:root [data-rc-widget], 
-:root span[data-ez-ph-id], 
-:root [href="https://adstub.net/indo666/"], 
-:root [data-id^="div-gpt-ad"], 
-:root .ob_container .item-container-obpd, 
-:root [id^="div-gpt-ad"], 
-:root [id^="ad_sky"], 
-:root [name^="google_ads_iframe"], 
-:root aside[id^="adrotate_widgets-"], 
-:root DFP-AD, 
-:root .grid > .container > #aside-promotion, 
-:root [data-type="ad-vertical"], 
-:root [data-testid^="taboola-"], 
-:root [data-testid^="section-AdRowBillboard"], 
-:root zeus-ad, 
-:root [data-testid="prism-ad-wrapper"], 
-:root [data-testid="ad_testID"], 
-:root [data-mobile-ad-id"], 
-:root [data-dynamic-ads"], 
-:root [data-desktop-ad-id"], 
-:root topadblock, 
-:root [data-testid="adBanner-wrapper"], 
-:root #teaser1[style^="width:autopx;"], 
-:root [data-asg-ins], 
-:root [data-block-type="ad"], 
-:root [data-ad-width], 
-:root div[data-ad-region], 
-:root AMP-AD, 
-:root [data-ad-cls], 
-:root [data-ez-name], 
-:root [class^="s2nPlayer"], 
-:root [class^="adDisplay-module"], 
-:root [data-freestar-ad][id], 
-:root AD-SLOT, 
-:root [data-ad-module], 
-:root #teaser2[style^="width:autopx;"], 
-:root [data-revive-zoneid], 
-:root div[id^="div-gpt-"], 
-:root .ob_dual_right > .ob_ads_header ~ .odb_div, 
-:root div[data-ad-targeting], 
-:root a[style="width:100%;height:100%;z-index:10000000000000000;position:absolute;top:0;left:0;"], 
-:root [data-testid="commercial-label-taboola"], 
-:root [class^="div-gpt-ad"], 
-:root #teaser3[style^="width:autopx;"], 
-:root iframe[scrolling="no"][sandbox*="allow-popups allow-modals"][style^="width: 100%; height: 100%; border: none;"], 
-:root [class^="amp-ad-"], 
-:root #teaser3[style="width: 100%;text-align: center;display: scroll;position:fixed;bottom: 0;margin: 0 auto;z-index: 103;"] { 
-    display: none !important; 
-}
-
-/* =========================================
-   EFFETTI OMBRA E COMPONENTI GRAFICI
-   ========================================= */
-.comp_ombrasemplice {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0px 4px 12px -6px;
-    border-radius: inherit;
-    pointer-events: none;
-}
-
-.comp_ombradestrasinistra,
-.comp_ombrasinistra,
-.comp_ombradestra,
-.comp_ombrataglio {
-    position: absolute;
-    bottom: -20px;
-    left: 0px;
-    height: 20px;
-    width: 100%;
-    overflow: hidden;
-    border-radius: inherit;
-}
-
 .comp_ombradestrasinistra:before {
-    z-index: -1;
-    position: absolute;
-    content: "";
-    bottom: 30px;
-    left: 10px;
-    width: calc(50% - 10px);
-    height: 20px;
-    max-width: 300px;
-    box-shadow: 0 15px 10px;
-    transform: rotate(-3deg);
+    z-index: -1; position: absolute; content: ""; bottom: 30px; left: 10px;
+    width: calc(50% - 10px); height: 20px; max-width: 300px;
+    box-shadow: 0 15px 10px; transform: rotate(-3deg);
 }
-
 .comp_ombradestrasinistra:after {
-    z-index: -1;
-    position: absolute;
-    content: "";
-    bottom: 30px;
-    right: 10px;
-    width: calc(50% - 10px);
-    max-width: 300px;
-    height: 20px;
-    box-shadow: 0 15px 10px;
-    transform: rotate(3deg);
+    z-index: -1; position: absolute; content: ""; bottom: 30px; right: 10px;
+    width: calc(50% - 10px); height: 20px; max-width: 300px;
+    box-shadow: 0 15px 10px; transform: rotate(3deg);
 }
-
 .comp_ombrasinistra:before {
-    z-index: -1;
-    position: absolute;
-    content: "";
-    bottom: 30px;
-    left: 10px;
-    width: calc(50% - 10px);
-    height: 20px;
-    max-width: 300px;
-    box-shadow: 0 15px 10px;
-    transform: rotate(-3deg);
+    z-index: -1; position: absolute; content: ""; bottom: 30px; left: 10px;
+    width: calc(50% - 10px); height: 20px; max-width: 300px;
+    box-shadow: 0 15px 10px; transform: rotate(-3deg);
 }
-
 .comp_ombradestra:after {
-    z-index: -1;
-    position: absolute;
-    content: "";
-    bottom: 30px;
-    right: 10px;
-    width: calc(50% - 10px);
-    max-width: 300px;
-    height: 20px;
-    box-shadow: 0 15px 10px;
-    transform: rotate(3deg);
+    z-index: -1; position: absolute; content: ""; bottom: 30px; right: 10px;
+    width: calc(50% - 10px); height: 20px; max-width: 300px;
+    box-shadow: 0 15px 10px; transform: rotate(3deg);
 }
-
 .comp_ombrataglio:before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    box-shadow: 0 0 20px;
-    height: 20px;
-    bottom: 20px;
-    left: 15px;
-    right: 15px;
-    border-radius: 100px / 10px;
+    content:""; position:absolute; z-index:-1;
+    box-shadow:0 0 20px; height: 20px; bottom: 20px;
+    left:15px; right:15px; border-radius:100px / 10px;
 }
-
-.comp_ombralunga {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    height: 100%;
+.comp_ombralunga { 
+    position: absolute; bottom: 0; width: 100%; height: 100%; 
+    border-radius: inherit;
     box-shadow: 1px 1px, 2px 2px, 3px 3px, 4px 4px, 5px 5px, 6px 6px, 7px 7px, 8px 8px, 9px 9px, 10px 10px, 11px 11px, 12px 12px, 13px 13px, 14px 14px, 15px 15px, 16px 16px, 17px 17px, 18px 18px, 19px 19px, 20px 20px, 21px 21px, 22px 22px, 23px 23px, 24px 24px, 25px 25px, 26px 26px, 27px 27px, 28px 28px, 29px 29px, 30px 30px, 31px 31px, 32px 32px, 33px 33px, 34px 34px, 35px 35px, 36px 36px, 37px 37px, 38px 38px, 39px 39px, 40px 40px, 41px 41px, 42px 42px, 43px 43px, 44px 44px, 45px 45px, 46px 46px, 47px 47px, 48px 48px, 49px 49px, 50px 50px, 51px 51px, 52px 52px, 53px 53px, 54px 54px, 55px 55px, 56px 56px, 57px 57px, 58px 58px, 59px 59px, 60px 60px;
-    border-radius: inherit;
 }
-
-.comp_ombrainterna {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    height: 100%;
-    box-shadow: inset 0 0 10px;
-    z-index: 1;
-    border-radius: inherit;
-    pointer-events: none;
-}
-
-.comp_effettoglossy {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 1px 4px, inset 0 0 40px;
-    z-index: 1;
-    border-radius: inherit;
-    pointer-events: none;
-}
-
-.comp_doppiotaglio:before,
-.comp_doppiotaglio:after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    box-shadow: 0 0 20px;
-    top: 0;
-    bottom: 0;
-    left: 20px;
-    right: 20px;
-    border-radius: 100px / 10px;
-}
-
-.comp_doppiotaglio:after {
-    right: 10px;
-    left: auto;
-    transform: skew(8deg) rotate(3deg);
-}
-
-.comp_doppiotaglioverticale:before,
-.comp_doppiotaglioverticale:after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    box-shadow: 0 0 20px;
-    top: 10px;
-    bottom: 10px;
-    left: 0;
-    right: 0;
-    border-radius: 100px / 10px;
-}
-
-.comp_doppiotaglioverticale:after {
-    right: 10px;
-    left: auto;
-    transform: skew(8deg) rotate(3deg);
-}
-
-.comp_ombraannullata {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0px 4px 12px -6px;
-    left: 0px;
-    border-radius: inherit;
-}
-
-.comp_ombraannullata:before,
-.comp_ombraannullata:after {
-    display: none !important;
-}
-
-.shadow_tendina {
-    width: 230px;
-    height: 134px;
-    transform: scale(.3);
-    transform-origin: top left;
-    background: var(--background-primary);
-    color: rgba(0, 0, 0, 0.4);
-    position: absolute;
-    margin-bottom: 50px;
-}
-
-.shadow_tendina.active {
-    background: var(--background-primary-hover);
-}
-
-/* =========================================
-   EFFETTI HOVER IMMAGINI (Animazioni)
-   ========================================= */
-
-/* --- Opacity --- */
-.hoverimage_opacityIn img {
-    opacity: 0.5;
-    transition: all .3s ease-in-out;
-    -webkit-transition: all .3s ease-in-out;
-}
-
-.hoverimage_opacityIn:hover img {
-    opacity: 1;
-}
-
-.hoverimage_opacityOut img {
-    opacity: 1;
-    transition: all .3s ease-in-out;
-    -webkit-transition: all .3s ease-in-out;
-}
-
-.hoverimage_opacityOut:hover img {
-    opacity: 0.5;
-}
-
-/* --- Zoom --- */
-.hoverimage_zoomIn img {
-    transform: scale(1);
-    -webkit-transform: scale(1);
-    transform-origin: center;
-    transition: all .3s ease-in-out;
-    -webkit-transition: all .3s ease-in-out;
-}
-
-.hoverimage_zoomIn:hover img {
-    transform: scale(1.3);
-    -webkit-transform: scale(1.3);
-}
-
-.hoverimage_zoomOut img {
-    transform: scale(1.3);
-    -webkit-transform: scale(1.3);
-    transform-origin: center;
-    transition: all .3s ease-in-out;
-    -webkit-transition: all .3s ease-in-out;
-}
-
-.hoverimage_zoomOut:hover img {
-    transform: scale(1);
-    -webkit-transform: scale(1);
-}
-
-/* --- Rotate & Zoom --- */
-.hoverimage_rotateZoomIn img {
-    transform: scale(1) rotate(0);
-    -webkit-transform: scale(1) rotate(0);
-    transform-origin: center;
-    transition: all .3s ease-in-out;
-    -webkit-transition: all .3s ease-in-out;
-}
-
-.hoverimage_rotateZoomIn:hover img {
-    transform: scale(1.3) rotate(15deg);
-    -webkit-transform: scale(1.3) rotate(15deg);
-}
-
-.hoverimage_rotateZoomOut img {
-    transform: scale(1.3) rotate(15deg);
-    -webkit-transform: scale(1.3) rotate(15deg);
-    transform-origin: center;
-    transition: all .3s ease-in-out;
-    -webkit-transition: all .3s ease-in-out;
-}
-
-.hoverimage_rotateZoomOut:hover img {
-    transform: scale(1) rotate(0);
-    -webkit-transform: scale(1) rotate(0);
-}
-
-/* --- Grayscale --- */
-.hoverimage_greyscaleIn img {
-    filter: grayscale(0);
-    -webkit-filter: grayscale(0);
-    transition: all .3s ease-in-out;
-    -webkit-transition: all .3s ease-in-out;
-}
-
-.hoverimage_greyscaleIn:hover img {
-    filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
-}
-
-.hoverimage_greyscaleOut img {
-    filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
-    transition: all .3s ease-in-out;
-    -webkit-transition: all .3s ease-in-out;
-}
-
-.hoverimage_greyscaleOut:hover img {
-    filter: grayscale(0);
-    -webkit-filter: grayscale(0);
-}
-
-/* --- Blur --- */
-.hoverimage_blurIn img {
-    filter: blur(0);
-    -webkit-filter: blur(0);
-    transition: all .3s ease-in-out;
-    -webkit-transition: all .3s ease-in-out;
-}
-
-.hoverimage_blurIn:hover img {
-    filter: blur(2px);
-    -webkit-filter: blur(2px);
-}
-
-.hoverimage_blurOut img {
-    filter: blur(2px);
-    -webkit-filter: blur(2px);
-    transition: all .3s ease-in-out;
-    -webkit-transition: all .3s ease-in-out;
-}
-
-.hoverimage_blurOut:hover img {
-    filter: blur(0);
-    -webkit-filter: blur(0);
-}
-/* =========================================
-   SOCIAL BAR - LAYOUT BASE
-   ========================================= */
-.socialbar {
-    list-style: none;
-    position: relative; /* Cambiato da absolute per evitare sovrapposizioni, usa absolute se necessario */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    overflow: hidden;
-    text-align: center;
-    justify-content: flex-start; /* Allineamento default a sinistra */
-    flex-wrap: wrap;
-    gap: 5px; /* Aggiunto un piccolo spazio tra le icone */
-}
-
-.socialbar.center {
-    justify-content: center;
-}
-
-.socialbar li {
-    display: block;
-    width: 26px;
-    height: 26px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 65% 65%;
-    cursor: pointer; /* Miglior UX rispetto a 'move' */
-    margin-top: 0 !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    transition: all .2s ease-out; /* Transizione base per tutti gli effetti */
-}
-
-/* =========================================
-   ICONE - TEMA ORIGINAL (Colori originali)
-   ========================================= */
-.socialbar[data-style="original"] li.icon-facebook    { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/facebook.svg); }
-.socialbar[data-style="original"] li.icon-X           { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/X.svg); }
-.socialbar[data-style="original"] li.icon-pinterest   { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/pinterest.svg); }
-.socialbar[data-style="original"] li.icon-linkedin    { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/linkedin.svg); }
-.socialbar[data-style="original"] li.icon-vimeo       { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/vimeo.svg); }
-.socialbar[data-style="original"] li.icon-youtube     { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/youtube.svg); }
-.socialbar[data-style="original"] li.icon-tumblr      { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/tumblr.svg); }
-.socialbar[data-style="original"] li.icon-skype       { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/skype.svg); }
-.socialbar[data-style="original"] li.icon-email       { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/email.svg); }
-.socialbar[data-style="original"] li.icon-fivehundredpx { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/fivehundredpx.svg); }
-.socialbar[data-style="original"] li.icon-foursquare  { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/foursquare.svg); }
-.socialbar[data-style="original"] li.icon-flickr      { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/flickr.svg); }
-.socialbar[data-style="original"] li.icon-evernote    { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/evernote.svg); }
-.socialbar[data-style="original"] li.icon-dribbble    { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/dribbble.svg); }
-.socialbar[data-style="original"] li.icon-soundcloud  { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/soundcloud.svg); }
-.socialbar[data-style="original"] li.icon-instagram   { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/instagram.png); }
-.socialbar[data-style="original"] li.icon-tripadvisor { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/tripadvisor.svg); }
-.socialbar[data-style="original"] li.icon-phone       { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/phone.svg); }
-.socialbar[data-style="original"] li.icon-whatsapp    { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/whatsapp.svg); }
-.socialbar[data-style="original"] li.icon-telegram    { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/telegram.svg); }
-.socialbar[data-style="original"] li.icon-messenger   { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/messenger.svg); }
-.socialbar[data-style="original"] li.icon-spotify     { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/spotify.svg); }
-.socialbar[data-style="original"] li.icon-tiktok      { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/tiktok.svg); }
-.socialbar[data-style="original"] li.icon-twitch      { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/twitch.svg); }
-.socialbar[data-style="original"] li.icon-discord     { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/discord.svg); }
-.socialbar[data-style="original"] li.icon-snapchat    { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/snapchat.svg); }
-.socialbar[data-style="original"] li.icon-threads     { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/threads.svg); }
-.socialbar[data-style="original"] li.icon-github      { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/github.svg); }
-.socialbar[data-style="original"] li.icon-reddit      { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/original/reddit.svg); }
-
-/* =========================================
-   ICONE - TEMA BLACK (Nere)
-   ========================================= */
-.socialbar[data-style="black"] li.icon-facebook    { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/facebook.svg); }
-.socialbar[data-style="black"] li.icon-X           { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/X.svg); }
-.socialbar[data-style="black"] li.icon-pinterest   { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/pinterest.svg); }
-.socialbar[data-style="black"] li.icon-linkedin    { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/linkedin.svg); }
-.socialbar[data-style="black"] li.icon-vimeo       { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/vimeo.svg); }
-.socialbar[data-style="black"] li.icon-youtube     { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/youtube.svg); }
-.socialbar[data-style="black"] li.icon-tumblr      { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/tumblr.svg); }
-.socialbar[data-style="black"] li.icon-skype       { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/skype.svg); }
-.socialbar[data-style="black"] li.icon-email       { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/email.svg); }
-.socialbar[data-style="black"] li.icon-fivehundredpx { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/fivehundredpx.svg); }
-.socialbar[data-style="black"] li.icon-foursquare  { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/foursquare.svg); }
-.socialbar[data-style="black"] li.icon-flickr      { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/flickr.svg); }
-.socialbar[data-style="black"] li.icon-evernote    { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/evernote.svg); }
-.socialbar[data-style="black"] li.icon-dribbble    { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/dribbble.svg); }
-.socialbar[data-style="black"] li.icon-soundcloud  { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/soundcloud.svg); }
-.socialbar[data-style="black"] li.icon-instagram   { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/instagram.svg); }
-.socialbar[data-style="black"] li.icon-tripadvisor { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/tripadvisor.svg); }
-.socialbar[data-style="black"] li.icon-phone       { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/phone.svg); }
-.socialbar[data-style="black"] li.icon-whatsapp    { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/whatsapp.svg); }
-.socialbar[data-style="black"] li.icon-telegram    { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/telegram.svg); }
-.socialbar[data-style="black"] li.icon-messenger   { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/messenger.svg); }
-.socialbar[data-style="black"] li.icon-spotify     { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/spotify.svg); }
-.socialbar[data-style="black"] li.icon-tiktok      { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/tiktok.svg); }
-.socialbar[data-style="black"] li.icon-twitch      { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/twitch.svg); }
-.socialbar[data-style="black"] li.icon-discord     { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/discord.svg); }
-.socialbar[data-style="black"] li.icon-snapchat    { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/snapchat.svg); }
-.socialbar[data-style="black"] li.icon-threads     { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/threads.svg); }
-.socialbar[data-style="black"] li.icon-github      { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/github.svg); }
-.socialbar[data-style="black"] li.icon-reddit      { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/black/reddit.svg); }
-
-/* =========================================
-   ICONE - TEMA WHITE (Bianche)
-   ========================================= */
-.socialbar[data-style="white"] li.icon-facebook    { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/facebook.svg); }
-.socialbar[data-style="white"] li.icon-X           { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/X.svg); }
-.socialbar[data-style="white"] li.icon-pinterest   { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/pinterest.svg); }
-.socialbar[data-style="white"] li.icon-linkedin    { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/linkedin.svg); }
-.socialbar[data-style="white"] li.icon-vimeo       { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/vimeo.svg); }
-.socialbar[data-style="white"] li.icon-youtube     { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/youtube.svg); }
-.socialbar[data-style="white"] li.icon-tumblr      { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/tumblr.svg); }
-.socialbar[data-style="white"] li.icon-skype       { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/skype.svg); }
-.socialbar[data-style="white"] li.icon-email       { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/email.svg); }
-.socialbar[data-style="white"] li.icon-fivehundredpx { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/fivehundredpx.svg); }
-.socialbar[data-style="white"] li.icon-foursquare  { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/foursquare.svg); }
-.socialbar[data-style="white"] li.icon-flickr      { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/flickr.svg); }
-.socialbar[data-style="white"] li.icon-evernote    { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/evernote.svg); }
-.socialbar[data-style="white"] li.icon-dribbble    { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/dribbble.svg); }
-.socialbar[data-style="white"] li.icon-soundcloud  { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/soundcloud.svg); }
-.socialbar[data-style="white"] li.icon-instagram   { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/instagram.svg); }
-.socialbar[data-style="white"] li.icon-tripadvisor { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/tripadvisor.svg); }
-.socialbar[data-style="white"] li.icon-phone       { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/phone.svg); }
-.socialbar[data-style="white"] li.icon-whatsapp    { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/whatsapp.svg); }
-.socialbar[data-style="white"] li.icon-telegram    { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/telegram.svg); }
-.socialbar[data-style="white"] li.icon-messenger   { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/messenger.svg); }
-.socialbar[data-style="white"] li.icon-spotify     { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/spotify.svg); }
-.socialbar[data-style="white"] li.icon-tiktok      { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/tiktok.svg); }
-.socialbar[data-style="white"] li.icon-twitch      { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/twitch.svg); }
-.socialbar[data-style="white"] li.icon-discord     { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/discord.svg); }
-.socialbar[data-style="white"] li.icon-snapchat    { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/snapchat.svg); }
-.socialbar[data-style="white"] li.icon-threads     { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/threads.svg); }
-.socialbar[data-style="white"] li.icon-github      { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/github.svg); }
-.socialbar[data-style="white"] li.icon-reddit      { background-image: url(//static.supersite.aruba.it/componenti/scrittori/socialbar/img/white/reddit.svg); }
-
-/* =========================================
-   SOCIAL BAR - EFFETTI HOVER
-   ========================================= */
-.socialbar[data-hover-effect] {
-    overflow: visible;
-}
-
-.socialbar[data-hover-effect="none"] {
-    overflow: hidden;
-}
-
-/* Scala (Zoom) */
-.socialbar[data-hover-effect="zoomout"] li:hover {
-    transform: scale(1.1);
-}
-
-/* Opacità */
-.socialbar[data-hover-effect="opacity"] li:hover {
-    opacity: .7;
-}
-
-/* Galleggiamento (Float) */
-.socialbar[data-hover-effect="float"] li:hover {
-    transform: translateY(-8px);
-}
-
-/* Spostamento laterale */
-.socialbar[data-hover-effect="forward"] li:hover {
-    transform: translateX(8px);
-}
-
-/* Scala di grigi e Sfocatura */
-.socialbar[data-hover-effect="grayscale"] li:hover,
-.socialbar[data-hover-effect="reverse-grayscale"] li:hover {
-    filter: grayscale(100%);
-}
-
-/* Reset per reverse-grayscale se necessario, altrimenti usa grayscale standard */
-.socialbar[data-hover-effect="reverse-grayscale"] li {
-    filter: grayscale(0);
-}
-
-.socialbar[data-hover-effect="grayscale-blur"] li:hover {
-    filter: grayscale(100%) blur(3px);
-}
-
-.socialbar[data-hover-effect="blur"] li:hover {
-    filter: blur(3px);
-}
-/* =========================================
-   1. MENU ORIZZONTALE - STRUTTURA BASE
-   ========================================= */
-.pulsantiera_fade_orizzontale {
-    position: absolute;
-    white-space: nowrap;
-    display: inline-block;
-    height: 100%;
-    z-index: 1;
-    padding: 10px;
-}
-
-.pulsantiera_fade_orizzontale .btn {
-    position: relative;
-    cursor: pointer;
-    text-align: center;
-    height: 100%;
-    display: inline-block;
-    vertical-align: top;
-    transition: all 0.4s linear;
-}
-
-.pulsantiera_fade_orizzontale .btn .testo {
-    min-width: 20px;
-    position: relative;
-}
-
-.pulsantiera_fade_orizzontale .btn:before {
-    content: "";
-    position: absolute;
-    inset: 0; /* Scorciatoia moderna per top/right/bottom/left: 0 */
-}
-
-/* Stato Selezionato */
-.pulsantiera_fade_orizzontale .btn_selezionato {
-    opacity: 1 !important;
-}
-
-/* =========================================
-   2. SOTTOMENU (DROPDOWN & LAYOUT)
-   ========================================= */
-.pulsantiera_fade_orizzontale .btn:hover .sub_pulsantiera {
-    opacity: 1;
-    visibility: visible;
-}
-
-.pulsantiera_fade_orizzontale .sub_pulsantiera {
-    position: absolute;
-    left: 0;
-    top: 0;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.4s ease-out;
-    min-width: inherit;
-    z-index: 4;
-}
-
-/* Pulsanti dentro il sottomenu */
-.pulsantiera_fade_orizzontale .btn_sub {
-    position: relative;
-    cursor: pointer;
-    padding: 10px;
-    transition: all 0.4s linear;
-}
-
-.pulsantiera_fade_orizzontale .btn_sub .testo {
-    padding: 0;
-    min-width: 20px;
-}
-
-/* =========================================
-   3. AZIONI EDITOR (EDIT, LINK, DELETE)
-   ========================================= */
-.orizzontalemenu_new .menu_element_actions {
-    display: none;
-    font-family: 'Heebo', sans-serif;
-    position: absolute;
-    box-sizing: border-box;
-    padding: 6px;
-    background-color: white;
-    shadow: 0 4px 73px rgba(23, 30, 40, 0.23);
-    border-radius: 10px;
-    width: 158px;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
-}
-
-/* Visualizza azioni al passaggio del mouse nell'editor */
-.orizzontalemenu_new .btn:hover > .menu_element_actions {
-    display: flex;
-    gap: 2px;
-}
-
-.orizzontalemenu_new .menu_element_actions > div {
-    cursor: pointer;
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    transition: .2s ease-in-out;
-    background-repeat: no-repeat;
-    background-size: 16px;
-    background-position: center;
-}
-
-.orizzontalemenu_new .menu_element_actions > div:hover { background-color: #edf4fb; }
-
-/* Icone Azioni */
-.orizzontalemenu_new div[data-action="edit"]     { background-image: url(//static.supersite.aruba.it/componenti/scrittori/orizzontalemenu/img/edit.svg); }
-.orizzontalemenu_new div[data-action="link"]     { background-image: url(//static.supersite.aruba.it/componenti/scrittori/orizzontalemenu/img/link.svg); }
-.orizzontalemenu_new div[data-action="submenu"]  { background-image: url(//static.supersite.aruba.it/componenti/scrittori/orizzontalemenu/img/plus-circle.svg); }
-.orizzontalemenu_new div[data-action="delete"]   { background-image: url(//static.supersite.aruba.it/componenti/scrittori/orizzontalemenu/img/trash.svg); }
-
-/* =========================================
-   4. MEGA MENU LAYOUT (COLONNE)
-   ========================================= */
-.orizzontalemenu_new .layout_subnav {
-    position: absolute;
-    top: 100%; /* Posizionato sotto il menu */
-    left: 0;
-    width: 100%;
-    text-align: center;
-}
-
-.orizzontalemenu_new .layout_subnav .subnav_content {
-    margin: 0 auto;
-    padding: 0 24px;
-    display: flex;
-    align-items: stretch;
-}
-
-/* Gestione Colonne Dinamiche */
-.orizzontalemenu_new .layout_subnav[data-columns="1"] .subnav_content > div { width: 100%; max-width: 520px; }
-.orizzontalemenu_new .layout_subnav[data-columns="2"] .subnav_content > div { width: 50%; }
-.orizzontalemenu_new .layout_subnav[data-columns="3"] .subnav_content > div { width: 33.33%; }
-.orizzontalemenu_new .layout_subnav[data-columns="4"] .subnav_content > div { width: 25%; }
-
-/* Cards all'interno del sottomenu */
-.orizzontalemenu_new .new_btn_sub.card .card_image_container {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-}
-
-.orizzontalemenu_new .new_btn_sub.card .card_image_actions {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, .7);
-    opacity: 0;
-    visibility: hidden;
-    transition: .2s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.orizzontalemenu_new .card_image_container:hover .card_image_actions {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* =========================================
-   5. FIX SPECIFICI (ID 6 & BACKGROUND)
-   ========================================= */
-#orizzontalemenu_6 .btn { 
-    margin: 0 !important; 
-    padding: 0 10px !important; 
-}
-
-#orizzontalemenu_6 .btn:hover,
-#orizzontalemenu_6 .btn_sub:hover { 
-    color: #E5E6E9 !important; 
-    background: transparent !important;
-}
-
-#rettangolo_98 {
-    background: linear-gradient(to right, rgba(255,255,255,1) 30%, rgba(223,223,223,1) 100%);
-}
+.comp_ombrainterna { position: absolute; bottom: 0; width: 100%; height: 100%; box-shadow: inset 0 0 10px; z-index: 1; border-radius: inherit; pointer-events: none; }
+.comp_effettoglossy { position: absolute; bottom: 0; width: 100%; height: 100%; box-shadow: 0 1px 4px, inset 0 0 40px; z-index: 1; border-radius: inherit; pointer-events: none; }
+
+.comp_doppiotaglio:before, .comp_doppiotaglio:after, .comp_doppiotaglioverticale:before, .comp_doppiotaglioverticale:after {
+    content:""; position:absolute; z-index:-1; box-shadow:0 0 20px; border-radius:100px / 10px;
+}
+.comp_doppiotaglio:before, .comp_doppiotaglio:after { top:0; bottom:0; left:20px; right:20px; }
+.comp_doppiotaglioverticale:before, .comp_doppiotaglioverticale:after { top:10px; bottom:10px; left:0; right:0; }
+.comp_doppiotaglio:after, .comp_doppiotaglioverticale:after { right:10px; left:auto; transform:skew(8deg) rotate(3deg); }
+.comp_ombraannullata { position: absolute; bottom: 0; width: 100%; height: 100%; box-shadow: 0 4px 12px -6px; left: 0; border-radius: inherit; }
+.comp_ombraannullata:before, .comp_ombraannullata:after { display: none !important; }
+.shadow_tendina { 
+    width: 230px; height: 134px; transform: scale(.3); transform-origin: top left;
+    background: var(--background-primary); color: rgba(0,0,0,0.4); 
+    position: absolute; margin-bottom: 50px; 
+}
+.shadow_tendina.active { background: var(--background-primary-hover); }
+:root img[width="728"][height="90"], :root [href^="https://adstub.net/"], :root amp-ad, :root div[id^="google_dfp_"], :root div[id^="ad-"] { display: none !important; }
