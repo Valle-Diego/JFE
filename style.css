@@ -1,8 +1,8 @@
 /* Reset e Variabili */
 :root {
-    --primary-red: #b30000;
-    --dark-grey: #333333;
-    --light-grey: #f4f4f4;
+    --primary-blue: #393672;
+    --dark-grey: #ADBBDB;
+    --light-grey: #E4F1F9;
     --white: #ffffff;
     --text-color: #2c3e50;
     --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -40,7 +40,7 @@ body {
 }
 
 .social-links a:hover {
-    color: var(--primary-red);
+    color: var(--primary-blue);
 }
 
 /* Header e Navigazione */
@@ -76,13 +76,13 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: var(--primary-red);
-    border-bottom: 2px solid var(--primary-red);
+    color: var(--primary-blue);
+    border-bottom: 2px solid var(--primary-blue);
 }
 
 /* Banner Rosso */
-.red-banner {
-    background-color: var(--primary-red);
+.banner {
+    background-color: var(--primary-blue);
     color: var(--white);
     text-align: center;
     padding: 15px 0;
@@ -136,7 +136,7 @@ footer {
 .footer-section h4 {
     color: var(--white);
     margin-bottom: 15px;
-    border-bottom: 2px solid var(--primary-red);
+    border-bottom: 2px solid var(--primary-blue);
     display: inline-block;
 }
 
