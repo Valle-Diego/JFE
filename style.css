@@ -30,6 +30,10 @@ body {
     font-size: 0.9rem;
 }
 
+#mail {
+    font-weight: bold;
+}
+
 .social-links {
     display: flex;
     gap: 10px;
