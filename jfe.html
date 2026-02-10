@@ -91,6 +91,31 @@
                 &copy; 2026 Joy Flute Ensemble APS - Tutti i diritti riservati.
             </div>
         </footer>
+
+        <script>
+            document.querySelectorAll('.dropdown, .flyout').forEach(item => {
+    
+                item.addEventListener('mouseenter', () => {
+                const menu = item.querySelector(':scope > ul');
+                if (menu) {
+                    menu.style.display = 'block';
+                    menu.style.opacity = '0';
+                
+                    setTimeout(() => {
+                        menu.style.transition = 'opacity 0.3s ease';
+                        menu.style.opacity = '1';
+                    }, 10);
+                }
+                });
+    
+                item.addEventListener('mouseleave', () => {
+                    const menu = item.querySelector(':scope > ul');
+                    if (menu) {
+                        menu.style.display = 'none';
+                    }
+                });
+            });
+        </script>
     
     </body>
 </html>
