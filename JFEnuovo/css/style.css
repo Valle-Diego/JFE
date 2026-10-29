@@ -1,0 +1,27 @@
+/* Spazi intenzionalmente vuoti per i testi e i materiali da compilare. */
+.empty-copy {
+  display: block;
+  width: 100%;
+  min-height: 88px;
+  border: 1px dashed rgba(61, 53, 128, .28);
+  border-radius: var(--r);
+  background: rgba(255, 255, 255, .72);
+}
+.empty-copy--title { min-height: 1.1em; max-width: 700px; margin: 0 0 20px; }
+.empty-copy--short { min-height: 48px; }
+.empty-copy--long { min-height: 138px; }
+.empty-copy--card { min-height: 98px; margin: 12px 0; }
+.empty-copy h2, .empty-copy h3 { margin: 0; }
+.feature-item h3, .event-card h3, .cta-banner h2 { margin: 0 0 12px; }
+.empty-image {
+  min-height: 250px;
+  border: 1px dashed rgba(61, 53, 128, .28);
+  border-radius: var(--r-lg);
+  background: linear-gradient(135deg, var(--mist), var(--cream));
+}
+.hero .empty-copy, .page-header .empty-copy { border-color: rgba(255,255,255,.45); background: rgba(255,255,255,.07); }
+.hero-title .empty-copy { min-height: 1.15em; }
+.hero-desc .empty-copy { min-height: 96px; }
+.feature-item .empty-copy { min-height: 76px; }
+.event-card .empty-copy { min-height: 66px; }
+.footer-desc.empty-copy { border-color: rgba(255,255,255,.22); background: rgba(255,255,255,.04); }
