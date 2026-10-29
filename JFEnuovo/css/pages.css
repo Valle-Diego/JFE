@@ -6,6 +6,11 @@
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.content-panel-grid { margin-top: 36px; }
+.content-panel-grid .card-body h2 {
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  margin-bottom: 14px;
+}
 
 /* Verified copy and items the association still needs to supply. */
 .content-notice {
@@ -25,8 +30,8 @@
   background: rgba(61,53,128,.06);
   color: var(--text-mid) !important;
 }
-.content-list { padding-left: 20px; margin: 12px 0 0; }
-.content-list li { margin: 0 0 10px; color: var(--text-soft); line-height: 1.65; }
+.content-list { list-style: disc; padding-left: 22px; margin: 12px 0 0; }
+.content-list li { padding-left: 3px; margin: 0 0 10px; color: var(--text-soft); line-height: 1.65; }
 .page-header .content-notice { max-width: 760px; }
 
 /* ── Team / Flautisti ── */

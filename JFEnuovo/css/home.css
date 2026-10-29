@@ -173,6 +173,18 @@
   gap: 80px;
   align-items: center;
 }
+.home-about-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+.home-mission-section,
+.home-cta-section { background: var(--bg-section); }
+.home-mission-heading {
+  max-width: 540px;
+  margin: 0 auto 56px;
+}
 .about-image-wrap { position: relative; }
 .about-image {
   width: 100%;
@@ -207,6 +219,14 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
   margin-top: 48px;
+}
+.home-events-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 .event-card { background: var(--white); border-radius: var(--r-lg); overflow: hidden; }
 .event-card-header {
