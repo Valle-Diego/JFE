@@ -1,0 +1,29 @@
+# File temporanei del sistema operativo
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Impostazioni locali degli editor
+.vscode/
+.idea/
+*.suo
+*.user
+
+# Configurazioni locali e credenziali
+.env
+.env.*
+!.env.example
+
+# Log, backup e file temporanei
+*.log
+error_log
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Dipendenze e cache generate localmente
+/vendor/
+/node_modules/
+/.phpunit.cache/

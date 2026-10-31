@@ -7,7 +7,7 @@
   background: var(--bg-darker);
   color: rgba(255,255,255,0.6);
   font-size: 12.5px;
-  height: 38px;
+  height: 42px;
   display: flex;
   align-items: center;
   letter-spacing: 0.2px;
@@ -25,7 +25,8 @@
 .topbar a { color: rgba(255,255,255,0.6); transition: color var(--t); }
 .topbar a:hover { color: var(--lilac); }
 .topbar-sep { opacity: 0.3; }
-.topbar-social { display: flex; gap: 8px; }
+.topbar-social { display: flex; gap: 10px; }
+.topbar-social .social-icon { width: 30px; height: 30px; padding: 6px; border-radius: 7px; }
 
 .social-icon {
   display: inline-flex;
@@ -234,9 +235,10 @@
   background: rgba(30,27,58,0.5);
   backdrop-filter: blur(4px);
   opacity: 0;
+  pointer-events: none;
   transition: opacity var(--t);
 }
-.nav-drawer.open { opacity: 1; }
+.nav-drawer.open { opacity: 1; pointer-events: auto; }
 
 .nav-panel {
   position: fixed;
@@ -316,6 +318,12 @@
   .nav-drawer { display: block; }
 }
 @media (max-width: 480px) {
+  .topbar-inner { padding: 0 16px; }
+  .topbar-left { gap: 8px; font-size: 11px; }
+  .topbar-left .topbar-sep,
+  .topbar-left > span:last-child { display: none; }
+  .topbar-social { gap: 7px; }
+  .topbar-social .social-icon { width: 28px; height: 28px; }
   .header-inner { padding: 0 16px; }
   .logo-text-wrap { display: none; }
 }

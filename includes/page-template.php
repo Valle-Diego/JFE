@@ -38,6 +38,13 @@ $contentPanels = $contentPanels ?? [
               <h2>
                 <?= htmlspecialchars($panel['title'] ?? 'Da completare', ENT_QUOTES, 'UTF-8') ?>
               </h2>
+              <?php if (!empty($panel['lead'])): ?>
+                <p class="content-panel-lead">
+                  <strong>
+                    <?= htmlspecialchars($panel['lead'], ENT_QUOTES, 'UTF-8') ?>
+                  </strong>
+                </p>
+              <?php endif; ?>
               <?php if (!empty($panel['items'])): ?>
                 <ul class="content-list">
                   <?php foreach ($panel['items'] as $item): ?>
@@ -49,6 +56,11 @@ $contentPanels = $contentPanels ?? [
               <?php elseif (!empty($panel['body'])): ?>
                 <p>
                   <?= htmlspecialchars($panel['body'], ENT_QUOTES, 'UTF-8') ?>
+                </p>
+              <?php endif; ?>
+              <?php if (!empty($panel['footer'])): ?>
+                <p class="content-panel-footer">
+                  <?= htmlspecialchars($panel['footer'], ENT_QUOTES, 'UTF-8') ?>
                 </p>
               <?php endif; ?>
             </div>

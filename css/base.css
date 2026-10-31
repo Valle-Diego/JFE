@@ -199,8 +199,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ── Fade-in animations ── */
 .reveal {
   opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.65s var(--t-slow), transform 0.65s var(--t-slow);
+  transform: translateY(22px);
+  transition: opacity 0.4s cubic-bezier(.4,0,.2,1), transform 0.4s cubic-bezier(.4,0,.2,1);
 }
 .reveal.visible { opacity: 1; transform: none; }
 

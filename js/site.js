@@ -103,7 +103,7 @@ function initReveal() {
   const obs = new IntersectionObserver(entries => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        setTimeout(() => entry.target.classList.add('visible'), Math.min(i * 35, 140));
         obs.unobserve(entry.target);
       }
     });
@@ -238,6 +238,62 @@ function initLightbox() {
 }
 
 /* ──────────────────────────────────────────────
+   MASTERCLASS PHOTO OVERLAY
+──────────────────────────────────────────────── */
+function initMasterclassLightbox() {
+  const links = [...document.querySelectorAll('.masterclass-photo-link')];
+  if (!links.length) return;
+
+  const dialog = document.createElement('dialog');
+  dialog.className = 'masterclass-lightbox';
+  dialog.setAttribute('aria-label', 'Foto ingrandita');
+  dialog.innerHTML = `
+    <div class="masterclass-lightbox-toolbar">
+      <button type="button" data-zoom-out aria-label="Riduci zoom">−</button>
+      <button type="button" data-zoom-reset aria-label="Ripristina zoom">100%</button>
+      <button type="button" data-zoom-in aria-label="Aumenta zoom">+</button>
+      <button type="button" class="masterclass-lightbox-close" data-lightbox-close aria-label="Chiudi immagine">✕</button>
+    </div>
+    <div class="masterclass-lightbox-stage"><img class="masterclass-lightbox-image" alt=""></div>
+    <div class="masterclass-lightbox-caption" aria-live="polite"></div>
+  `;
+  document.body.appendChild(dialog);
+
+  const image = dialog.querySelector('.masterclass-lightbox-image');
+  const stage = dialog.querySelector('.masterclass-lightbox-stage');
+  const caption = dialog.querySelector('.masterclass-lightbox-caption');
+  let zoom = 1;
+  const setZoom = value => {
+    zoom = Math.min(4, Math.max(1, value));
+    image.style.transform = `scale(${zoom})`;
+    dialog.querySelector('[data-zoom-reset]').textContent = `${Math.round(zoom * 100)}%`;
+  };
+
+  links.forEach(link => link.addEventListener('click', event => {
+    event.preventDefault();
+    const thumbnail = link.querySelector('img');
+    image.src = link.href;
+    image.alt = thumbnail?.alt || '';
+    caption.textContent = link.closest('figure')?.querySelector('figcaption')?.textContent.trim() || '';
+    stage.scrollTo(0, 0);
+    setZoom(1);
+    dialog.showModal();
+  }));
+
+  dialog.querySelector('[data-lightbox-close]').addEventListener('click', () => dialog.close());
+  dialog.querySelector('[data-zoom-in]').addEventListener('click', () => setZoom(zoom + .25));
+  dialog.querySelector('[data-zoom-out]').addEventListener('click', () => setZoom(zoom - .25));
+  dialog.querySelector('[data-zoom-reset]').addEventListener('click', () => setZoom(1));
+  dialog.addEventListener('click', event => {
+    if (event.target === dialog) dialog.close();
+  });
+  dialog.addEventListener('close', () => {
+    image.removeAttribute('src');
+    setZoom(1);
+  });
+}
+
+/* ──────────────────────────────────────────────
    7. DONATION AMOUNTS
 ──────────────────────────────────────────────── */
 function initDonation() {
@@ -309,6 +365,33 @@ function initSmoothScroll() {
 }
 
 /* ──────────────────────────────────────────────
+   YOUTUBE CHANNEL DETAILS
+──────────────────────────────────────────────── */
+function initYouTubeChannel() {
+  const panel = document.querySelector('[data-youtube-channel]');
+  if (!panel) return;
+
+  const status = panel.querySelector('[data-channel-status]');
+  fetch(panel.dataset.endpoint, { headers: { Accept: 'application/json' } })
+    .then(response => {
+      if (!response.ok) throw new Error('Channel data unavailable');
+      return response.json();
+    })
+    .then(data => {
+      const numberFormat = new Intl.NumberFormat('it-IT');
+      panel.querySelector('[data-channel-subscribers]').textContent = data.subscriberCount === null
+        ? 'Non pubblico'
+        : numberFormat.format(data.subscriberCount);
+      panel.querySelector('[data-channel-videos]').textContent = numberFormat.format(data.videoCount);
+      panel.querySelector('[data-channel-description]').textContent = data.description || 'Nessuna descrizione disponibile.';
+      status.textContent = `Dati aggiornati al ${new Date(data.updatedAt).toLocaleString('it-IT')}.`;
+    })
+    .catch(() => {
+      status.textContent = 'Dati del canale non disponibili al momento.';
+    });
+}
+
+/* ──────────────────────────────────────────────
    INIT
 ──────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
@@ -318,10 +401,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initReveal();
   initHeroNotes();
   initLightbox();
+  initMasterclassLightbox();
   initDonation();
   initContactForm();
   initGalleryFilter();
   initSmoothScroll();
+  initYouTubeChannel();
 
   // Update year
   document.querySelectorAll('[data-year]').forEach(el => {

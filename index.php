@@ -44,7 +44,6 @@ require __DIR__ . '/includes/header.php';
           <div class="about-image empty-image" aria-hidden="true"></div>
           <div class="about-image-badge">
             <strong>APS</strong>
-            <span>&</span>
           </div>
         </div>
         <div class="reveal">
