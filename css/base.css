@@ -20,7 +20,7 @@ body {
   background: var(--bg-page);
   line-height: 1.7;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* ── Typography ── */
@@ -42,6 +42,8 @@ a {
   text-decoration: none;
   transition: color var(--t);
 }
+
+img:not(.logo-img):not(.masterclass-lightbox-image) { cursor: zoom-in; }
 a:hover { color: var(--lavender); }
 
 ul, ol { list-style: none; }

@@ -82,6 +82,12 @@
 .directors-section { background: var(--bg-section); }
 .team-grid--directors { grid-template-columns: repeat(2, minmax(0, 260px)); justify-content: center; }
 .team-grid--other-musicians { grid-template-columns: repeat(2, minmax(0, 260px)); }
+.team-grid--professors { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.professors-section { background: var(--bg-section); }
+.affiliated-ensemble-section { background: var(--bg-section); }
+.affiliated-ensemble-card { display: grid; grid-template-columns: minmax(240px, .8fr) minmax(0, 1fr); max-width: 720px; margin: 0 auto; overflow: hidden; }
+.affiliated-ensemble-card .team-card-photo { height: 280px; }
+.affiliated-ensemble-card .team-card-body { align-self: center; padding: 30px; }
 
 /* ── Photo archive ── */
 .photo-year-nav { position: sticky; top: 72px; z-index: 5; background: rgba(255,255,255,.96); border-bottom: 1px solid rgba(61,53,128,.1); }
@@ -123,13 +129,15 @@
 .masterclass-photo-grid .photo-slot { margin: 0; }
 .masterclass-photo-link { display: block; width: 100%; height: 100%; cursor: zoom-in; }
 .masterclass-photo { display: block; width: 100%; height: 100%; min-height: 0; flex: 1 1 auto; object-fit: cover; }
+.masterclass-memory-section img:not(.logo-img) { cursor: pointer; }
 .masterclass-lightbox { width: min(96vw, 1400px); height: min(94vh, 940px); max-width: none; max-height: none; padding: 16px; overflow: hidden; border: 0; border-radius: var(--r-lg); background: #171526; color: #fff; }
+.masterclass-lightbox[open] { position: fixed; inset: auto; top: 50vh; left: 50vw; display: flex; flex-direction: column; margin: 0; transform: translate(-50%, -50%); }
 .masterclass-lightbox::backdrop { background: rgba(10, 8, 30, .88); backdrop-filter: blur(4px); }
 .masterclass-lightbox-toolbar { display: flex; align-items: center; justify-content: flex-end; gap: 8px; min-height: 44px; }
 .masterclass-lightbox-toolbar button { min-width: 42px; height: 38px; padding: 0 12px; border: 1px solid rgba(255,255,255,.25); border-radius: 8px; background: rgba(255,255,255,.1); color: #fff; font-size: 1rem; cursor: pointer; }
 .masterclass-lightbox-toolbar button:hover { background: rgba(255,255,255,.22); }
 .masterclass-lightbox-toolbar .masterclass-lightbox-close { margin-left: 8px; }
-.masterclass-lightbox-stage { display: flex; width: 100%; height: calc(100% - 84px); align-items: center; justify-content: center; overflow: auto; }
+.masterclass-lightbox-stage { display: flex; width: 100%; min-height: 0; flex: 1 1 auto; align-items: center; justify-content: center; overflow: auto; }
 .masterclass-lightbox-image { display: block; max-width: 100%; max-height: 100%; object-fit: contain; transform-origin: center; transition: transform .15s ease; }
 .masterclass-lightbox-caption { min-height: 30px; padding-top: 8px; color: rgba(255,255,255,.75); text-align: center; font-size: .9rem; }
 .photo-slot-caption:not(.photo-slot-caption--empty) { display: flex; min-height: 42px; flex: 0 0 auto; align-items: center; padding: 9px 12px; color: var(--text-mid); font-size: .78rem; line-height: 1.4; }
@@ -143,6 +151,13 @@
 .masterclass-video-description--empty::after { display: block; height: 1.2em; content: ''; border-bottom: 1px solid rgba(61,53,128,.18); }
 .masterclass-video-piece { min-height: 42px; margin: 0 16px; border-top: 1px solid rgba(61,53,128,.12); color: var(--text-mid); }
 .masterclass-video-piece::before { display: block; padding-top: 10px; content: 'Brano: '; color: var(--text-muted); font-size: .82rem; }
+.statute-container { max-width: 1100px; }
+.statute-heading { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 22px; }
+.statute-heading h2 { margin: 0; }
+.statute-viewer { overflow: hidden; min-height: 760px; border: 1px solid rgba(61,53,128,.14); border-radius: var(--r-lg); background: var(--white); box-shadow: var(--shadow-md); }
+.statute-viewer iframe { display: block; width: 100%; height: min(82vh, 1000px); min-height: 760px; border: 0; }
+.statute-fallback { margin: 16px 0 0; color: var(--text-soft); text-align: center; }
+.statute-fallback a { color: var(--violet); font-weight: 700; text-decoration: underline; }
 
 /* ── Photo Gallery ── */
 .gallery-filter {
@@ -429,6 +444,7 @@
   .team-grid       { grid-template-columns: repeat(2, 1fr); }
   .team-grid--directors,
   .team-grid--other-musicians { grid-template-columns: repeat(2, minmax(0, 260px)); }
+  .team-grid--professors { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .gallery-grid    { grid-template-columns: repeat(2, 1fr); }
   .video-grid      { grid-template-columns: 1fr; }
   .video-feature-grid { grid-template-columns: minmax(0, 1.5fr) minmax(270px, .9fr); gap: 20px; }
@@ -443,6 +459,8 @@
   .team-grid       { grid-template-columns: 1fr 1fr; }
   .team-grid--directors,
   .team-grid--other-musicians { grid-template-columns: 1fr; }
+  .team-grid--professors { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .affiliated-ensemble-card { grid-template-columns: 1fr; }
   .grid-3          { grid-template-columns: 1fr; }
   .resource-grid   { grid-template-columns: 1fr; }
   .event-item      { flex-direction: column; }
@@ -456,13 +474,16 @@
   .masterclass-photo-grid--three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .masterclass-final-video { margin-top: 48px; padding: 22px; }
   .masterclass-video-grid { grid-template-columns: 1fr; gap: 16px; }
+  .statute-heading { align-items: flex-start; flex-direction: column; }
+  .statute-viewer, .statute-viewer iframe { min-height: 65vh; }
   .video-feature-grid { grid-template-columns: 1fr; }
   .youtube-channel-poster { width: 100%; padding: 16px; }
 }
 @media (max-width: 400px) {
   .team-grid     { grid-template-columns: 1fr; }
   .team-grid--directors,
-  .team-grid--other-musicians { grid-template-columns: 1fr; }
+  .team-grid--other-musicians,
+  .team-grid--professors { grid-template-columns: 1fr; }
   .gallery-grid  { grid-template-columns: 1fr; }
   .supporters-grid { grid-template-columns: 1fr 1fr; }
   .photo-gallery-grid { grid-template-columns: 1fr 1fr; }

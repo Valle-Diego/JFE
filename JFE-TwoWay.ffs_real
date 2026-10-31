@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FreeFileSync XmlType="REAL" XmlFormat="2">
+    <Directories><Item>C:\Users\satir\Documents\JFE</Item><Item>C:\Users\satir\xampp\htdocs\Esercizi\JFEnuovo</Item></Directories>
+    <Delay>10</Delay>
+    <Commandline>"C:\Program Files\FreeFileSync\FreeFileSync.exe" "C:\Users\satir\Documents\JFE\JFE-TwoWay.ffs_batch"</Commandline>
+</FreeFileSync>

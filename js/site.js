@@ -241,8 +241,8 @@ function initLightbox() {
    MASTERCLASS PHOTO OVERLAY
 ──────────────────────────────────────────────── */
 function initMasterclassLightbox() {
-  const links = [...document.querySelectorAll('.masterclass-photo-link')];
-  if (!links.length) return;
+  const images = [...document.querySelectorAll('img:not(.logo-img):not(.masterclass-lightbox-image)')];
+  if (!images.length) return;
 
   const dialog = document.createElement('dialog');
   dialog.className = 'masterclass-lightbox';
@@ -269,16 +269,28 @@ function initMasterclassLightbox() {
     dialog.querySelector('[data-zoom-reset]').textContent = `${Math.round(zoom * 100)}%`;
   };
 
-  links.forEach(link => link.addEventListener('click', event => {
-    event.preventDefault();
-    const thumbnail = link.querySelector('img');
-    image.src = link.href;
-    image.alt = thumbnail?.alt || '';
-    caption.textContent = link.closest('figure')?.querySelector('figcaption')?.textContent.trim() || '';
-    stage.scrollTo(0, 0);
-    setZoom(1);
-    dialog.showModal();
-  }));
+  images.forEach(thumbnail => {
+    const trigger = thumbnail.closest('a') || thumbnail;
+    if (!thumbnail.closest('a')) {
+      thumbnail.tabIndex = 0;
+      thumbnail.setAttribute('role', 'button');
+      thumbnail.setAttribute('aria-label', `${thumbnail.alt || 'Immagine'}: apri ingrandita`);
+    }
+    const openImage = event => {
+      event.preventDefault();
+      event.stopPropagation();
+      image.src = thumbnail.currentSrc || thumbnail.src;
+      image.alt = thumbnail.alt || '';
+      caption.textContent = thumbnail.closest('figure')?.querySelector('figcaption')?.textContent.trim() || thumbnail.alt || '';
+      stage.scrollTo(0, 0);
+      setZoom(1);
+      dialog.showModal();
+    };
+    trigger.addEventListener('click', openImage);
+    if (trigger === thumbnail) trigger.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') openImage(event);
+    });
+  });
 
   dialog.querySelector('[data-lightbox-close]').addEventListener('click', () => dialog.close());
   dialog.querySelector('[data-zoom-in]').addEventListener('click', () => setZoom(zoom + .25));
